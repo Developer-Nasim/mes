@@ -1,15 +1,8 @@
 .profile-area{
     margin-bottom: 80px;
 }
-header {
-    padding: 10px 0;
-    background: #ebebeb;
-    margin-bottom: 70px;
-}
-
-.menu li {
-    display: inline-block;
-    margin-left: 20px;
+.container {
+    max-width: 1600px;
 } 
 .card {
     border: none;
@@ -64,8 +57,7 @@ ul.title {
 }
 
 ul.title li {
-    width: 50%;
-    font-size: 20px;
+    width: 50%; 
     font-weight: 700;
 }
 button.after-none:after {
@@ -102,7 +94,16 @@ ul.title span {
     position: absolute;
     right: 0;
 }
-
+h2 {
+    position: relative;
+} 
+h2 small {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+}
 
 
 

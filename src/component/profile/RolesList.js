@@ -80,17 +80,18 @@ function RolesList() {
   
     return (
         <div className="roles">
-            <h2>Roles List</h2> <br />
+            <h2>Roles List <small>Total { keepAllRoles.length }</small></h2> <br />
             <ul className="title">
                 <li>Name</li>
-                <li>Title</li>
-                <span>Total { keepAllRoles.length }</span>
+                <li>Title</li> 
             </ul> 
+
             { dataStatus === "loading" ? "loading..." : 
                 <div className="accordion" id="accordionExample">
                     { AllTheRoles }
                 </div>
             }
+            
         </div>
     )
 }
