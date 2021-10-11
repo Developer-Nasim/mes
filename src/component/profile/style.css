@@ -65,10 +65,40 @@ ul.title {
 ul.title li {
     width: 50%;
     font-size: 20px;
+    font-weight: 700;
+}
+button.after-none:after {
+    display: none !important;
+}
+form.loginform label {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
 }
 
+form.loginform label input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #b5b5b5;
+    margin-top: 5px;
+}
 
-
+form.loginform  button {
+    border: none;
+    background: #062966;
+    outline: none;
+    padding: 8px 30px;
+    border-radius: 3px;
+    color: #fff;
+}
+ul.title span {
+    width: 100px;
+    text-align: right;
+    font-weight: 700;
+}
 
 
 

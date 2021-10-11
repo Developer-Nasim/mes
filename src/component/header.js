@@ -1,4 +1,5 @@
-import React, { useState,useRef,useEffect } from 'react'
+import React from 'react'
+import {Link} from "react-router-dom";
 
 function Header(props) {
     return (
@@ -7,15 +8,15 @@ function Header(props) {
                 <div className="row align-items-center">
                     <div className="col-md-6">
                         <div className="logo">
-                            <a href="#"><img src={props.logo} alt="" /></a>
+                            <Link to="/"><img src={props.logo} alt="" /></Link>
                         </div>
                     </div>
                     <div className="col-md-6 text-right">
                         <div className="menu">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Services</a></li>
+                                <li><Link to="/">Home</Link></li> 
+                                { !localStorage.getItem('loggedin') ? <li><Link to="/login">Login</Link></li> : "" } 
+                                
                             </ul>
                         </div>
                     </div>
