@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import RolesList from "./RolesList";
 
 class Profile extends Component {
     render() {
