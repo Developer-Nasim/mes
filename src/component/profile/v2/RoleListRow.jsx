@@ -18,7 +18,6 @@ class RoleListRow extends Component {
     }
 
 
-
     render() {
 
         let item = this.props.item;
@@ -45,7 +44,7 @@ class RoleListRow extends Component {
                         </Table.Row>
                         <Table.Row className={this.state.exp}>
                             <Table.Cell collapsing>
-                                the extra text
+                                Placeholder for applications
                             </Table.Cell>
                         </Table.Row>
                     </Table>
