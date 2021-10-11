@@ -25,7 +25,7 @@ function RolesList() {
     },[])
 
   
-    // Creating Iteam to show
+    // Creating Item to show
     let AllTheRoles = [];
     if (keepAllRoles.length > 0) { 
         for (let i = 0; i < keepAllRoles.length ; i++) {
@@ -46,8 +46,9 @@ function RolesList() {
             AllTheRoles.push(
                 <div className="card" key={i}>
                     <div className="card-header" id={"heading"+i}>  
+                                     
                         <button className={ keepAllRoles[i].role_applications ? "btn btn-link collapsed" : "btn btn-link collapsed after-none"} type="button" data-toggle="collapse" data-target={"#collapse"+i} aria-expanded="true" aria-controls={"collapse"+i}>
-                            <span><a href={"https://dev-mes.pantheonsite.io/node/"+keepAllRoles[i].role_nid} target="_blank">{keepAllRoles[i].role_employer_name}</a></span>
+                            <span>{i}<a href={"https://dev-mes.pantheonsite.io/node/"+keepAllRoles[i].role_nid} target="_blank">{keepAllRoles[i].role_employer_name}</a></span>
                             <span><a href={"https://dev-mes.pantheonsite.io/node/"+keepAllRoles[i].role_nid} target="_blank">{keepAllRoles[i].role_title}</a>   </span> 
                         </button> 
                     </div> 
@@ -82,6 +83,7 @@ function RolesList() {
         <div className="roles">
             <h2>Roles List <small>Total { keepAllRoles.length }</small></h2> <br />
             <ul className="title">
+                <li>#</li>
                 <li>Name</li>
                 <li>Title</li> 
             </ul> 

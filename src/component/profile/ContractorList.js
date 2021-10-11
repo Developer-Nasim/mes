@@ -2,9 +2,9 @@ import React, { useState,useEffect } from 'react'
 import Axios from 'axios'; 
 import './style.css';  
 
-function ContructList() {
+function ContractorList() {
  
-    const [ keepAllContructList,setkeepAllContructList  ] = useState([]);
+    const [ keepAllContractorList,setkeepAllContractorList  ] = useState([]);
     const [ dataStatus,setdataStatus  ]     = useState('loading');
     
     // Run after load the html
@@ -14,7 +14,7 @@ function ContructList() {
         Axios.post(`https://dev-mes.pantheonsite.io/custom_api/contractor_list/${uid}`)
         .then(res => { 
             if (res.data.data) {
-                setkeepAllContructList(res.data.data)
+                setkeepAllContractorList(res.data.data)
                 setdataStatus('done')
             }
         })
@@ -25,24 +25,24 @@ function ContructList() {
   
     // Creating Iteam to show
     let AllTheRoles = [];
-    if (keepAllContructList.length > 0) { 
-        for (let i = 0; i < keepAllContructList.length ; i++) {  
+    if (keepAllContractorList.length > 0) { 
+        for (let i = 0; i < keepAllContractorList.length ; i++) {  
             AllTheRoles.push(
                 <tr key={i}> 
-                    <td><a href="https://dev-mes.pantheonsite.io/user/" target="_blank">{keepAllContructList[i].contract_number}</a></td>  
-                    <td><a href="https://dev-mes.pantheonsite.io/user/" target="_blank">{keepAllContructList[i].candidate_name}</a></td>  
-                    <td><a href="https://dev-mes.pantheonsite.io/user/" target="_blank">{keepAllContructList[i].contract_status_name}</a></td>  
-                    <td>{keepAllContructList[i].start_date}</td>  
-                    <td>{keepAllContructList[i].finishing_date}</td>  
-                    <td>{keepAllContructList[i].pay_rate}</td>  
-                    <td>{keepAllContructList[i].charge_rate}</td>  
-                    <td>{keepAllContructList[i].charge_pay_ratio}</td>  
-                    <td>{keepAllContructList[i].occupation}</td>  
-                    <td><a href="https://dev-mes.pantheonsite.io/user/" target="_blank">{keepAllContructList[i].company_name}</a></td>  
-                    <td>{keepAllContructList[i].medical_status}</td>  
-                    <td>{keepAllContructList[i].reference}</td>  
-                    <td>{keepAllContructList[i].roi}</td>  
-                    <td>{keepAllContructList[i].induction}</td>  
+                    <td><a href="https://dev-mes.pantheonsite.io/user/" target="_blank">{keepAllContractorList[i].contract_number}</a></td>  
+                    <td><a href="https://dev-mes.pantheonsite.io/user/" target="_blank">{keepAllContractorList[i].candidate_name}</a></td>  
+                    <td><a href="https://dev-mes.pantheonsite.io/user/" target="_blank">{keepAllContractorList[i].contract_status_name}</a></td>  
+                    <td>{keepAllContractorList[i].start_date}</td>  
+                    <td>{keepAllContractorList[i].finishing_date}</td>  
+                    <td>{keepAllContractorList[i].pay_rate}</td>  
+                    <td>{keepAllContractorList[i].charge_rate}</td>  
+                    <td>{keepAllContractorList[i].charge_pay_ratio}</td>  
+                    <td>{keepAllContractorList[i].occupation}</td>  
+                    <td><a href="https://dev-mes.pantheonsite.io/user/" target="_blank">{keepAllContractorList[i].company_name}</a></td>  
+                    <td>{keepAllContractorList[i].medical_status}</td>  
+                    <td>{keepAllContractorList[i].reference}</td>  
+                    <td>{keepAllContractorList[i].roi}</td>  
+                    <td>{keepAllContractorList[i].induction}</td>  
                 </tr>  
             ) 
         }
@@ -51,7 +51,7 @@ function ContructList() {
 
     return (
         <div className="roles">
-            <h2>Contractor List<small>Total { keepAllContructList.length }</small></h2> <br />  
+            <h2>Contractor List<small>Total { keepAllContractorList.length }</small></h2> <br />  
             <table className="table">
                 <thead>	
                     <tr>
@@ -82,4 +82,4 @@ function ContructList() {
 }
 
 
-export default ContructList;
+export default ContractorList;

@@ -1,8 +1,8 @@
 import React from 'react' 
 import './style.css';  
 import RolesList from './RolesList'
-import LatestClicked from './LatestCliked'
-import ContructList from './ContructList'
+import LatestClicked from './LatestClicked'
+import ContractorList from './ContractorList'
 import PlacementList from './PlacementList'
 
 function Profle() {
@@ -15,7 +15,7 @@ function Profle() {
                     {/* Roles list show here */}
                     <div className="col-lg-5"> <RolesList /> </div>
                     <div className="col-lg-7"> <LatestClicked /> </div> 
-                    <div className="col-lg-12 mt-5"> <ContructList /> </div>
+                    <div className="col-lg-12 mt-5"> <ContractorList /> </div>
                     <div className="col-lg-12 mt-5"> <PlacementList /> </div> 
 
                 </div>

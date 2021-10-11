@@ -50,11 +50,7 @@ function AuthPoc() {
             console.log(error);
         });
 
-
-
-
-
-
+ 
 
     } 
 
