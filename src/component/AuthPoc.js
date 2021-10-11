@@ -1,6 +1,6 @@
 import React, { useState,useRef,useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import axios, { Axios } from "axios";
 
 var qs = require('qs');
 var data = qs.stringify({});
@@ -24,7 +24,7 @@ function AuthPoc() {
     const FindData = (uname,pass) => { 
 
         let uuid  = getId.getAttribute("uuid"); 
-
+ 
         var config = {
             method: 'get',
             url: 'https://dev-mes.pantheonsite.io/jsonapi/user/user/'+uuid,
@@ -49,6 +49,13 @@ function AuthPoc() {
         .catch(function (error) {
             console.log(error);
         });
+
+
+
+
+
+
+
     } 
 
     // Submit
