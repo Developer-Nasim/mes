@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Icon, Table} from 'semantic-ui-react'
 import CustomTable from "./CustomTable"; 
+import Atag from "./a_tag"; 
 
 const axios = require('axios');
 
@@ -37,8 +38,8 @@ class PlacementList extends Component {
                 
                 let rows = response.data.data.map(item => {  
                     return <Table.Row  key={response.data.data.indexOf(item)+Math.random()}>
-                        <Table.Cell collapsing>{item.candidate_name}</Table.Cell>
-                        <Table.Cell collapsing>{item.company_name}</Table.Cell>
+                        <Table.Cell collapsing><Atag href="https://dev-mes.pantheonsite.io/user/">{item.candidate_name}</Atag> </Table.Cell>
+                        <Table.Cell collapsing><Atag href="https://dev-mes.pantheonsite.io/user/">{item.company_name}</Atag> </Table.Cell> 
                         <Table.Cell collapsing>{item.job_title}</Table.Cell> 
                         <Table.Cell collapsing>{item.start_date}</Table.Cell> 
                         <Table.Cell collapsing>{item.salary_package}</Table.Cell>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Icon, Table} from 'semantic-ui-react'
 import CustomTable from "./CustomTable"; 
+import Atag from "./a_tag"; 
 
 const axios = require('axios');
 
@@ -36,9 +37,9 @@ class LatestClicked extends Component {
             .then(function (response) { 
                 
                 let rows = response.data.data.map(item => {  
-                    return <Table.Row key={response.data.data.indexOf(item)}>
-                        <Table.Cell collapsing>{item.role_title}</Table.Cell>
-                        <Table.Cell collapsing>{item.user_name}</Table.Cell>
+                    return <Table.Row key={response.data.data.indexOf(item)}> 
+                        <Table.Cell collapsing><Atag href="https://dev-mes.pantheonsite.io/user/">{item.role_title}</Atag> </Table.Cell>
+                        <Table.Cell collapsing><Atag href="https://dev-mes.pantheonsite.io/user/">{item.user_name}</Atag> </Table.Cell>
                         <Table.Cell collapsing>{item.lastopen}</Table.Cell> 
                         <Table.Cell collapsing>{item.clicks}</Table.Cell> 
                     </Table.Row>  

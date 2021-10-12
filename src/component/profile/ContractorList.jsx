@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Icon, Table} from 'semantic-ui-react'
 import CustomTable from "./CustomTable"; 
+import Atag from "./a_tag"; 
 
 const axios = require('axios');
 
@@ -37,23 +38,31 @@ class ContractorList extends Component {
                 
                 let rows = response.data.data.map(item => {  
                     return <Table.Row key={response.data.data.indexOf(item)}>
-                        <Table.Cell collapsing>{item.contract_number}</Table.Cell>
-                        <Table.Cell collapsing>{item.candidate_name}</Table.Cell>
-                        <Table.Cell collapsing>{item.contract_status_name}</Table.Cell> 
+                        <Table.Cell collapsing>
+                            <Atag href="https://dev-mes.pantheonsite.io/user/">{item.contract_number}</Atag> 
+                        </Table.Cell>
+                        <Table.Cell collapsing>
+                            <Atag href="https://dev-mes.pantheonsite.io/user/">{item.candidate_name}</Atag> 
+                        </Table.Cell>
+                        <Table.Cell collapsing>
+                            <Atag href="https://dev-mes.pantheonsite.io/user/">{item.contract_status_name}</Atag> 
+                        </Table.Cell> 
                         <Table.Cell collapsing>{item.start_date}</Table.Cell> 
                         <Table.Cell collapsing>{item.finishing_date}</Table.Cell> 
                         <Table.Cell collapsing>{item.pay_rate}</Table.Cell> 
                         <Table.Cell collapsing>{item.charge_rate}</Table.Cell> 
                         <Table.Cell collapsing>{item.charge_pay_ratio}</Table.Cell> 
-                        <Table.Cell collapsing>{item.occupation}</Table.Cell> 
-                        <Table.Cell collapsing>{item.company_name}</Table.Cell> 
+                        <Table.Cell collapsing>{item.occupation}</Table.Cell>  
+                        <Table.Cell collapsing>
+                            <Atag href="https://dev-mes.pantheonsite.io/user/">{item.company_name}</Atag> 
+                        </Table.Cell>  
                         <Table.Cell collapsing>{item.medical_status}</Table.Cell> 
                         <Table.Cell collapsing>{item.reference}</Table.Cell> 
                         <Table.Cell collapsing>{item.roi}</Table.Cell> 
                         <Table.Cell collapsing>{item.induction}</Table.Cell> 
                     </Table.Row>  
-                });  	
-                			 
+                });  	  
+  
                 let columns = [];
                 columns.push(<Table.HeaderCell>Contract Number</Table.HeaderCell>);
                 columns.push(<Table.HeaderCell>Name</Table.HeaderCell>);

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Icon, Table} from 'semantic-ui-react'
+import Atag from "./a_tag"; 
 
 class RoleListRow extends Component {
 
@@ -27,14 +28,7 @@ class RoleListRow extends Component {
         let item = this.props.item;
         let apps = 0; 
         if (item.role_applications) {
-            apps = item.role_applications.length;
-            item.role_applications.map((datas) => { 
-                <>
-                    <Table.Cell collapsing>{datas.app_creator_name}</Table.Cell>
-                    <Table.Cell collapsing>{datas.app_title}</Table.Cell>
-                    <Table.Cell collapsing>{datas.app_date}</Table.Cell> 
-                </>
-            }) 
+            apps = item.role_applications.length; 
         } 
   
  
@@ -44,11 +38,16 @@ class RoleListRow extends Component {
                 <Table.Cell>
                     <Table celled striped>
                         <Table.Row>
-                            <Table.Cell>
-                                <Icon name='folder'/> {item.role_employer_name}
+                            
+                            <Table.Cell collapsing>
+                                <Atag href={"https://dev-mes.pantheonsite.io/node/"+item.role_nid}><Icon name='folder'/> {item.role_employer_name}</Atag>
                             </Table.Cell>
-                            <Table.Cell>{item.role_title}</Table.Cell>
-                            <Table.Cell>{item.role_publish_date}</Table.Cell>
+                            <Table.Cell collapsing>
+                                <Atag href={"https://dev-mes.pantheonsite.io/node/"+item.role_nid}>{item.role_title}</Atag>
+                            </Table.Cell>
+                            <Table.Cell collapsing>
+                                {item.role_publish_date}
+                            </Table.Cell>    
                             <Table.Cell collapsing textAlign='right'>
                                 {apps > 0 ?
                                     (<span onClick={this.show}>({apps}) {this.state.exp === "show" ? "-" : "+"}</span>)
@@ -60,8 +59,12 @@ class RoleListRow extends Component {
                         {item.role_applications ? 
                             item.role_applications.map((datas) => 
                                 <Table.Row className={this.state.exp} key={item.role_applications.indexOf(datas)}>
-                                    <Table.Cell collapsing>{datas.app_creator_name}</Table.Cell>
-                                    <Table.Cell collapsing>{datas.app_title}</Table.Cell>
+                                    <Table.Cell collapsing>
+                                        <Atag href={"https://dev-mes.pantheonsite.io/user/"+datas.app_creator_uid}>{datas.app_creator_name}</Atag>
+                                    </Table.Cell>
+                                    <Table.Cell collapsing>
+                                        <Atag href={"https://dev-mes.pantheonsite.io/user/"+datas.app_creator_uid}>{datas.app_title}</Atag>
+                                    </Table.Cell>
                                     <Table.Cell collapsing>{datas.app_date}</Table.Cell> 
                                 </Table.Row> 
                             )
