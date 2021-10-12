@@ -55,7 +55,7 @@ class RoleList extends Component {
                     columns: columns
                 })
             }
-                .bind(this))
+            .bind(this))
             .catch(function (error) {
                     console.log(error);
                 }

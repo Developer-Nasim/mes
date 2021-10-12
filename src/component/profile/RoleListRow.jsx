@@ -32,6 +32,7 @@ class RoleListRow extends Component {
         } 
   
  
+     
 
         return (
             <Table.Row>
@@ -40,10 +41,10 @@ class RoleListRow extends Component {
                         <Table.Row>
                             
                             <Table.Cell collapsing>
-                                <Atag href={"https://dev-mes.pantheonsite.io/node/"+item.role_nid}><Icon name='folder'/> {item.role_employer_name}</Atag>
+                                <Atag link={"/node/"+item.role_nid}><Icon name='folder'/> {item.role_employer_name}</Atag>
                             </Table.Cell>
                             <Table.Cell collapsing>
-                                <Atag href={"https://dev-mes.pantheonsite.io/node/"+item.role_nid}>{item.role_title}</Atag>
+                                <Atag link={"/node/"+item.role_nid}>{item.role_title}</Atag>
                             </Table.Cell>
                             <Table.Cell collapsing>
                                 {item.role_publish_date}
@@ -60,10 +61,10 @@ class RoleListRow extends Component {
                             item.role_applications.map((datas) => 
                                 <Table.Row className={this.state.exp} key={item.role_applications.indexOf(datas)}>
                                     <Table.Cell collapsing>
-                                        <Atag href={"https://dev-mes.pantheonsite.io/user/"+datas.app_creator_uid}>{datas.app_creator_name}</Atag>
+                                        <Atag link={"/user/"+datas.app_creator_uid}>{datas.app_creator_name}</Atag>
                                     </Table.Cell>
                                     <Table.Cell collapsing>
-                                        <Atag href={"https://dev-mes.pantheonsite.io/user/"+datas.app_creator_uid}>{datas.app_title}</Atag>
+                                        <Atag link={"/user/"+datas.app_creator_uid}>{datas.app_title}</Atag>
                                     </Table.Cell>
                                     <Table.Cell collapsing>{datas.app_date}</Table.Cell> 
                                 </Table.Row> 

@@ -3,7 +3,7 @@ import './style.css';
 import RoleList from "./RoleList";
 import LatestClicked from "./LatestClicked";
 import ContractorList from "./ContractorList";
-import PlacementList from "./PlacementList";
+import PlacementList from "./PlacementList"; 
 // import LatestClicked from './old/LatestClicked'
 // import ContractorList from './old/ContractorList'
 // import PlacementList from './old/PlacementList'
@@ -14,8 +14,7 @@ function Profle() {
         <div className="profile-area"> 
             <div className="container">
                 <div className="row"> 
-
-                    {/* Roles list show here */}
+  
                     <div className="col-lg-6">
                         <RoleList
                             baseUrl={'https://dev-mes.pantheonsite.io/'}

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Icon, Table} from 'semantic-ui-react'
 import CustomTable from "./CustomTable"; 
 import Atag from "./a_tag"; 
+import Title from "./title";
 
 const axios = require('axios');
 
@@ -37,9 +38,11 @@ class PlacementList extends Component {
             .then(function (response) { 
                 
                 let rows = response.data.data.map(item => {  
-                    return <Table.Row  key={response.data.data.indexOf(item)+Math.random()}>
-                        <Table.Cell collapsing><Atag href="https://dev-mes.pantheonsite.io/user/">{item.candidate_name}</Atag> </Table.Cell>
-                        <Table.Cell collapsing><Atag href="https://dev-mes.pantheonsite.io/user/">{item.company_name}</Atag> </Table.Cell> 
+                    return <Table.Row  key={response.data.data.indexOf(item)+Math.random()}> 
+
+                        <Table.Cell collapsing><Atag link="/user">{item.candidate_name}</Atag> </Table.Cell> 
+                        <Table.Cell collapsing><Atag link="/user/">{item.company_name}</Atag> </Table.Cell> 
+
                         <Table.Cell collapsing>{item.job_title}</Table.Cell> 
                         <Table.Cell collapsing>{item.start_date}</Table.Cell> 
                         <Table.Cell collapsing>{item.salary_package}</Table.Cell>
@@ -80,7 +83,7 @@ class PlacementList extends Component {
 
         return (
             <div>
-                <h2>Placement List for Recruiter Profile <small> Total { this.state.rows.length }</small></h2>   
+                <Title title="Placement List for Recruiter Profile" total={ this.state.rows.length }/>  
                 <CustomTable
                     columns={this.state.columns}
                     rows={this.state.rows}

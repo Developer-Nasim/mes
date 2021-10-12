@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Icon, Table} from 'semantic-ui-react'
 import CustomTable from "./CustomTable"; 
-import Atag from "./a_tag"; 
+import Atag from "./a_tag";
+import Title from "./title";
 
 const axios = require('axios');
 
@@ -18,7 +19,7 @@ class ContractorList extends Component {
     }
 
     componentDidMount() {
-        this.pullData();
+        this.pullData(); 
     }
 
     pullData = () => {
@@ -32,20 +33,21 @@ class ContractorList extends Component {
                 'Content-Type': 'application/json',
             }
         };
-
+ 
+ 
         axios(config)
             .then(function (response) { 
                 
                 let rows = response.data.data.map(item => {  
                     return <Table.Row key={response.data.data.indexOf(item)}>
                         <Table.Cell collapsing>
-                            <Atag href="https://dev-mes.pantheonsite.io/user/">{item.contract_number}</Atag> 
+                            <Atag link="/user/">{item.contract_number}</Atag> 
                         </Table.Cell>
                         <Table.Cell collapsing>
-                            <Atag href="https://dev-mes.pantheonsite.io/user/">{item.candidate_name}</Atag> 
+                            <Atag link="/user/">{item.candidate_name}</Atag> 
                         </Table.Cell>
                         <Table.Cell collapsing>
-                            <Atag href="https://dev-mes.pantheonsite.io/user/">{item.contract_status_name}</Atag> 
+                            <Atag link="/user/">{item.contract_status_name}</Atag> 
                         </Table.Cell> 
                         <Table.Cell collapsing>{item.start_date}</Table.Cell> 
                         <Table.Cell collapsing>{item.finishing_date}</Table.Cell> 
@@ -54,7 +56,7 @@ class ContractorList extends Component {
                         <Table.Cell collapsing>{item.charge_pay_ratio}</Table.Cell> 
                         <Table.Cell collapsing>{item.occupation}</Table.Cell>  
                         <Table.Cell collapsing>
-                            <Atag href="https://dev-mes.pantheonsite.io/user/">{item.company_name}</Atag> 
+                            <Atag link="/user/">{item.company_name}</Atag> 
                         </Table.Cell>  
                         <Table.Cell collapsing>{item.medical_status}</Table.Cell> 
                         <Table.Cell collapsing>{item.reference}</Table.Cell> 
@@ -64,7 +66,7 @@ class ContractorList extends Component {
                 });  	  
   
                 let columns = [];
-                columns.push(<Table.HeaderCell>Contract Number</Table.HeaderCell>);
+                columns.push(<Table.HeaderCell onClick={(e) => this.asasa(e)}>Contract Number</Table.HeaderCell>);
                 columns.push(<Table.HeaderCell>Name</Table.HeaderCell>);
                 columns.push(<Table.HeaderCell>Contract Status</Table.HeaderCell>);
                 columns.push(<Table.HeaderCell>Start Date</Table.HeaderCell>);
@@ -90,9 +92,10 @@ class ContractorList extends Component {
                 }
             );
 
-    }
+    } 
 
 
+   
     render() {
 
         if (!this.state.columns) {
@@ -101,7 +104,7 @@ class ContractorList extends Component {
 
         return (
             <div>
-                <h2>Contractor List<small> Total { this.state.rows.length }</small></h2> 
+                <Title title="Contractor List" total={ this.state.rows.length }/> 
                 <CustomTable
                     columns={this.state.columns}
                     rows={this.state.rows}
