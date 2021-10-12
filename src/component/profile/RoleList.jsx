@@ -71,7 +71,7 @@ class RoleList extends Component {
         }
 
         return (
-            <div> 
+            <div className="roles_list"> 
                 <h2>Roles List <small> Total { this.state.rows.length }</small></h2>   
                 <CustomTable
                     columns={this.state.columns}

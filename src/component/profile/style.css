@@ -108,7 +108,29 @@ h2 small {
 }
 
  
+.roles_list > table > thead > tr > table {
+    margin: 0;
+    border: none !important;
+}
 
+.roles_list > table > thead > tr > table > th {
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.roles_list > table > tbody > tr > td {
+    padding: 0;
+    border-top: none;
+}
+
+.roles_list > table > tbody > tr > td > table {
+    margin: 0;
+}
+  
+.roles_list > table > tbody > tr > td > table > tr.show:last-child td, 
+.roles_list > table > tbody > tr > td > table > tr.hidden:last-child td { 
+    padding-bottom: 60px;
+    font-size: 95%;
+}
 
 
 
