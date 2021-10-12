@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {Icon, Table} from 'semantic-ui-react'
-import CustomTable from "./CustomTable";
-import RoleListRow from "./RoleListRow";
+import CustomTable from "./CustomTable"; 
 
 const axios = require('axios');
 
-class RoleList2 extends Component {
+class LatestClicked extends Component {
 
     constructor(props) {
         super(props);
@@ -22,7 +21,8 @@ class RoleList2 extends Component {
     }
 
     pullData = () => {
-        let fetchUrl = this.props.baseUrl + "/custom_api/getroles/" + this.props.uid;
+
+        let fetchUrl = this.props.baseUrl + "/custom_api/latest_clicked_roles/" + this.props.uid;
 
         var config = {
             method: 'get',
@@ -33,17 +33,23 @@ class RoleList2 extends Component {
         };
 
         axios(config)
-            .then(function (response) {
-                let rows = response.data.data.map(item => {
-
-                    return <RoleListRow
-                        item={item}
-                    />;
+            .then(function (response) { 
+                
+                let rows = response.data.data.map(item => {  
+                    return <Table.Row key={response.data.data.indexOf(item)}>
+                        <Table.Cell collapsing>{item.role_title}</Table.Cell>
+                        <Table.Cell collapsing>{item.user_name}</Table.Cell>
+                        <Table.Cell collapsing>{item.lastopen}</Table.Cell> 
+                        <Table.Cell collapsing>{item.clicks}</Table.Cell> 
+                    </Table.Row>  
                 });
 
+                			 
                 let columns = [];
-                columns.push(<Table.HeaderCell>Name</Table.HeaderCell>);
-                columns.push(<Table.HeaderCell>Title</Table.HeaderCell>);
+                columns.push(<Table.HeaderCell>Role</Table.HeaderCell>);
+                columns.push(<Table.HeaderCell>Full Name</Table.HeaderCell>);
+                columns.push(<Table.HeaderCell>Last Opened</Table.HeaderCell>);
+                columns.push(<Table.HeaderCell>Clicks</Table.HeaderCell>);
 
                 this.setState({
                     rows: rows,
@@ -67,6 +73,7 @@ class RoleList2 extends Component {
 
         return (
             <div>
+                <h2>Latest Clicked Roles<small> Total { this.state.rows.length }</small></h2>  
                 <CustomTable
                     columns={this.state.columns}
                     rows={this.state.rows}
@@ -76,4 +83,4 @@ class RoleList2 extends Component {
     }
 }
 
-export default RoleList2;
+export default LatestClicked;

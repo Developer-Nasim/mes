@@ -96,6 +96,8 @@ ul.title span {
 }
 h2 {
     position: relative;
+    margin-top: 60px;
+    margin-bottom: 30px;
 } 
 h2 small {
     position: absolute;
@@ -105,8 +107,7 @@ h2 small {
     font-size: 22px;
 }
 
-
-
+ 
 
 
 

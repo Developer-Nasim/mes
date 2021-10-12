@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'; 
 import {Icon, Table} from 'semantic-ui-react'
 
 class CustomTable extends Component {
